@@ -21,7 +21,7 @@ obj.spoonPath = script_path()
 Command = dofile(obj.spoonPath.."/command.lua")
 history = dofile(obj.spoonPath.."/history.lua"):init()
 
-DefaultMapping = {
+local DefaultMapping = {
   leftHalf = {
     {{"cmd", "alt"}, "left"},
   },
