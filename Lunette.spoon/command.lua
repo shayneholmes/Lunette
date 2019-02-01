@@ -2,6 +2,10 @@ local obj = {}
 obj.__index = obj
 obj.name = "Command"
 
+--- === Command ===
+---
+--- A collection of commands that can be called to move windows around
+
 -- Load dependencies
 local function script_path()
   local str = debug.getinfo(2, "S").source:sub(2)
