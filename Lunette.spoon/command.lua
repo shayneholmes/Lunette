@@ -301,7 +301,7 @@ obj.nextDisplay = function(windowFrame, screenFrame)
   local nextScreenFrame = nextScreen:frame()
   local newFrame
 
-  if Validate:inScreenBounds(windowFrame, nextScreenFrame) then
+  if Validate:fitsInScreen(windowFrame, nextScreenFrame) then
     newFrame = Resize:center(windowFrame, nextScreenFrame)
   else
     newFrame = Resize:fullScreen(windowFrame, nextScreenFrame)
@@ -317,7 +317,7 @@ obj.prevDisplay = function(windowFrame, screenFrame)
   local prevScreenFrame = prevScreen:frame()
   local newFrame
 
-  if Validate:inScreenBounds(windowFrame, prevScreenFrame) then
+  if Validate:fitsInScreen(windowFrame, prevScreenFrame) then
     newFrame = Resize:center(windowFrame, prevScreenFrame)
   else
     newFrame = Resize:fullScreen(windowFrame, prevScreenFrame)

@@ -184,7 +184,7 @@ function obj:centerVerticalThird(window, screen)
          window.h == screen.h
 end
 
-function obj:inScreenBounds(window, screen)
+function obj:fitsInScreen(window, screen)
   return window.w <= screen.w and
          window.h <= screen.h
 end
