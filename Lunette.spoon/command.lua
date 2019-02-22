@@ -297,11 +297,14 @@ end
 obj.nextDisplay = function(windowFrame, screenFrame)
   local currentWindow = hs.window.focusedWindow()
   local currentScreen = currentWindow:screen()
+  local currentScreenFrame = currentScreen:frame()
   local nextScreen = currentScreen:next()
   local nextScreenFrame = nextScreen:frame()
   local newFrame
 
-  if Validate:fitsInScreen(windowFrame, nextScreenFrame) then
+  if Validate:screenSizesEqual(currentScreenFrame, nextScreenFrame) then
+    newFrame = Resize:moveToScreen(windowFrame, currentScreenFrame, nextScreenFrame)
+  elseif Validate:fitsInScreen(windowFrame, nextScreenFrame) then
     newFrame = Resize:center(windowFrame, nextScreenFrame)
   else
     newFrame = Resize:fullScreen(windowFrame, nextScreenFrame)
@@ -313,11 +316,14 @@ end
 obj.prevDisplay = function(windowFrame, screenFrame)
   local currentWindow = hs.window.focusedWindow()
   local currentScreen = currentWindow:screen()
+  local currentScreenFrame = currentScreen:frame()
   local prevScreen = currentScreen:previous()
   local prevScreenFrame = prevScreen:frame()
   local newFrame
 
-  if Validate:fitsInScreen(windowFrame, prevScreenFrame) then
+  if Validate:screenSizesEqual(currentScreenFrame, prevScreenFrame) then
+    newFrame = Resize:moveToScreen(windowFrame, currentScreenFrame, prevScreenFrame)
+  elseif Validate:fitsInScreen(windowFrame, prevScreenFrame) then
     newFrame = Resize:center(windowFrame, prevScreenFrame)
   else
     newFrame = Resize:fullScreen(windowFrame, prevScreenFrame)

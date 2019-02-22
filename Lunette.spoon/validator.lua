@@ -189,4 +189,9 @@ function obj:fitsInScreen(window, screen)
          window.h <= screen.h
 end
 
+function obj:screenSizesEqual(screen1, screen2)
+  return screen1.w == screen2.w and
+         screen1.h == screen2.h
+end
+
 return obj

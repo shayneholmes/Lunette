@@ -33,6 +33,17 @@ function obj:center(window, screen)
   return window
 end
 
+function obj:moveToScreen(window, source, dest)
+  -- keep position same relative to source
+  offsetx = dest.x - source.x
+  offsety = dest.y - source.y
+
+  window.x = window.x + offsetx
+  window.y = window.y + offsety
+
+  return window
+end
+
 function obj:shrink(window, screen)
   window.x = window.x + 10
   window.y = window.y + 10
